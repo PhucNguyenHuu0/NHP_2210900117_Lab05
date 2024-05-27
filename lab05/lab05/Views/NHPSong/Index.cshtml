@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lab05.Models.NHPSong>
+
+@{
+    ViewBag.Title = "NHPSong";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Them moi", "NHPCreate")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nhpTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nhpAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nhpArtist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nhpYaerRelease)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nhpTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nhpAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nhpArtist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nhpYaerRelease)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
